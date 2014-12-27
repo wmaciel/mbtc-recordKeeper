@@ -28,8 +28,11 @@ def main():
     db = client['MBTC']
 
     while True:
-        process_book(db)
-        process_trades(db)
+        try:
+            process_book(db)
+            process_trades(db)
+        except:
+            pass
         time.sleep(CACHE_TIME)
 
 
